@@ -1,7 +1,7 @@
-package com.ussd_demo.demo.service.impl
+package com.ussd_demo.demo.service.implementations
 
 import com.ussd_demo.demo.data.session.USSDSession
-import com.ussd_demo.demo.service.SessionManager
+import com.ussd_demo.demo.service.interfaces.SessionManager
 import org.springframework.cache.annotation.CacheEvict
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service

@@ -1,9 +1,9 @@
-package com.ussd_demo.demo.service.impl
+package com.ussd_demo.demo.service.implementations
 
 import com.ussd_demo.demo.data.session.USSDSession
-import com.ussd_demo.demo.service.SessionManager
+import com.ussd_demo.demo.service.interfaces.SessionManager
 import com.ussd_demo.demo.utils.AppFunctions.phoneNumberWithoutPlus
-import com.ussd_demo.demo.service.UssdService
+import com.ussd_demo.demo.service.interfaces.UssdService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
@@ -23,8 +23,9 @@ class UssdService : UssdService {
         var session = sessionManager.getSession(sessionId)
         if (session == null) {
             logger.info(
-                "Createing a new session with sessionId: $sessionId, " + "serviceCode: $serviceCode, networkCode: $networkCode, " + "cellNumber: $cellNumber , text: $currentMenuItem"
-
+                "Createing a new session with sessionId: $sessionId, " +
+                        "" + "serviceCode: $serviceCode, networkCode: $networkCode, " +
+                        "" + "cellNumber: $cellNumber , text: $currentMenuItem"
             )
             session = sessionManager.createSession(
                 sessionId = sessionId,
@@ -35,14 +36,15 @@ class UssdService : UssdService {
             )
         }
 
-        // More Logic handling here
-
         return processResults(session, currentMenuItem)
     }
 
 
     private suspend fun processResults(session: USSDSession, currentMenuItem: String): String {
+
+
         TODO("Not yet implemented")
+
     }
 
 }

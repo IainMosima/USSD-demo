@@ -1,4 +1,4 @@
-package com.ussd_demo.demo.service
+package com.ussd_demo.demo.service.interfaces
 
 import com.ussd_demo.demo.data.session.USSDSession
 

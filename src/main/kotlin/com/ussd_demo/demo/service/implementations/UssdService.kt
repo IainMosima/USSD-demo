@@ -17,7 +17,7 @@ class UssdService : UssdService {
     lateinit var sessionManager: SessionManager
 
     override suspend fun process(
-        sessionId: String, phoneNumber: String, networkCode: String, serviceCode: String, currentMenuItem: String
+        sessionId: String, phoneNumber: String, networkCode: String, serviceCode: String, text: String
     ): String {
         val cellNumber = phoneNumberWithoutPlus(phoneNumber)
         var session = sessionManager.getSession(sessionId)
@@ -25,18 +25,17 @@ class UssdService : UssdService {
             logger.info(
                 "Createing a new session with sessionId: $sessionId, " +
                         "" + "serviceCode: $serviceCode, networkCode: $networkCode, " +
-                        "" + "cellNumber: $cellNumber , text: $currentMenuItem"
+                        "" + "cellNumber: $cellNumber , text: $text"
             )
             session = sessionManager.createSession(
                 sessionId = sessionId,
                 phoneNumber = cellNumber,
                 networkCode = networkCode,
                 serviceCode = serviceCode,
-                currentMenuItem = currentMenuItem
+                text = text
             )
         }
-
-        return processResults(session, currentMenuItem)
+        return processResults(session, text)
     }
 
 

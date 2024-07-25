@@ -5,5 +5,5 @@ data class USSDSession(
     val serviceCode: String,
     val phoneNumber: String,
     val networkCode: String,
-    var currentMenuItem: String,
+    var text: String,
 )

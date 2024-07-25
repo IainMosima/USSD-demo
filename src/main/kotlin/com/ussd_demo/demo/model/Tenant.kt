@@ -4,8 +4,8 @@ import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
-@Document(collection = "tenants")
-data class Tenants(
+@Document(collection = "tenant")
+data class Tenant(
     @Id
     var tenantId: ObjectId? = null,
     var firstName: String? = null,

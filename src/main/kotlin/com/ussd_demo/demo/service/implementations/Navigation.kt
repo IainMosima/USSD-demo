@@ -6,8 +6,9 @@ import com.ussd_demo.demo.enum.RENTSTATUS
 import com.ussd_demo.demo.service.interfaces.Navigation
 import com.ussd_demo.demo.utils.AppConstant
 import com.ussd_demo.demo.utils.NavigatorResult
-import java.awt.Menu
+import org.springframework.stereotype.Service
 
+@Service
 class Navigation : Navigation {
     override fun menuConstruct(session: USSDSession?, menu: String): String {
         val lastUserInput = getLastMenuItem(menu)
@@ -34,7 +35,7 @@ class Navigation : Navigation {
         val parts = menu.split("*")
         val partsSize = parts.size
         when {
-            partsSize == 0 -> return MENU.MAIN_MENU
+            menu == "" -> return MENU.MAIN_MENU
             partsSize == 1 && parts[0] == "1" -> {
                 return MENU.PAY_RENT_MENU;
             }
@@ -59,8 +60,6 @@ class Navigation : Navigation {
     }
 
     override fun renderMenu(
-        session: USSDSession,
-        result: NavigatorResult,
         menu: String,
         rentStatus: RENTSTATUS?
     ): String {

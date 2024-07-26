@@ -10,7 +10,7 @@ interface Navigation {
     fun getLastMenuItem(text: String): String
 //    fun getPreviousMenu(text: String): String
     fun renderMenuStatus(message: String?, terminate: Boolean = false): String
-    fun renderMenu(session: USSDSession, result: NavigatorResult, menu: String, rentStatus: RENTSTATUS?): String
+    fun renderMenu(menu: String, rentStatus: RENTSTATUS?): String
     fun menuState(menu: String): MENU
     fun renderMenuPayRent(message: String, flatName: String, houseNumber: String, rent: Number): String
     fun renderMenuRentStatus(message: String, flatName: String, houseNumber: String): String

@@ -10,7 +10,7 @@ interface SessionManager {
 
     fun getSession(sessionId: String): USSDSession?
 
-    fun updateSession(session: USSDSession)
+    fun updateSession(sessionId: String, text: String): USSDSession?
 
     fun clearSession(sessionId: String)
 }

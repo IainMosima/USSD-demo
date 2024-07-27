@@ -5,4 +5,6 @@ object AppFunctions {
         val regex = "\\+"
         return phoneNumber.replaceFirst(regex.toRegex(), "").trim()
     }
+
+
 }

@@ -3,6 +3,7 @@ package com.ussd_demo.demo.controller
 import com.ussd_demo.demo.service.implementations.UssdService
 import jakarta.validation.constraints.Size
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
 
 
@@ -12,7 +13,7 @@ class USSDController {
     @Autowired
     lateinit var ussdService: UssdService
 
-    @PostMapping
+    @PostMapping(produces = [MediaType.TEXT_PLAIN_VALUE])
     @ResponseBody
     fun menu(
         @RequestParam(value = "sessionId") @Size(min = 1, max = 1000) sessionId: String,

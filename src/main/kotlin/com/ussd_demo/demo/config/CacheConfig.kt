@@ -20,9 +20,8 @@ class CacheConfig {
     fun caffeineCacheBuilder(): Caffeine<Any, Any> {
         return Caffeine.newBuilder()
             .initialCapacity(100)
-//            .maximumSize(500)
             .expireAfterAccess(10, TimeUnit.MINUTES)
             .weakKeys()
-        .maximumSize(1000)
+            .maximumSize(1000)
     }
 }
